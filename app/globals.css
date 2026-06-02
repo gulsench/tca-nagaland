@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  /* Smooth anchor-link scrolling for the single-page nav. */
+  scroll-behavior: smooth;
+  /* Offset so sections aren't hidden behind the sticky header. */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-ink-900 text-white font-body antialiased;
+}
+
+@layer components {
+  /* Athletic, condensed heading style. */
+  .heading {
+    @apply font-heading font-bold uppercase tracking-wide leading-[0.95];
+  }
+
+  /* Section vertical rhythm. */
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  /* Constrained content width. */
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Crimson primary button. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-crimson px-6 py-3
+      font-heading text-sm font-bold uppercase tracking-widest text-white
+      transition-colors hover:bg-crimson-dark
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+      focus-visible:outline-crimson-light;
+  }
+
+  /* Outlined / ghost button. */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-white/30 bg-white/5
+      px-6 py-3 font-heading text-sm font-bold uppercase tracking-widest text-white
+      transition-colors hover:border-white/60 hover:bg-white/10
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+      focus-visible:outline-white;
+  }
+
+  /* Small accent label above headings. */
+  .eyebrow {
+    @apply inline-block font-heading text-sm font-bold uppercase tracking-[0.25em] text-crimson;
+  }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
