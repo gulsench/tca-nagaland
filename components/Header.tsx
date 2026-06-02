@@ -35,7 +35,7 @@ export default function Header() {
     >
       <div className="container-px flex h-20 items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-3" aria-label={`${site.name} home`}>
+        <a href="/" className="flex items-center gap-3" aria-label={`${site.name} home`}>
           <Image
             src={site.logo}
             alt={`${site.name} logo`}

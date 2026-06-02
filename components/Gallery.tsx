@@ -5,7 +5,7 @@ import FadeIn from "./FadeIn";
 
 export default function Gallery() {
   return (
-    <section className="section bg-ink-800">
+    <section id="gallery" className="section bg-ink-800">
       <div className="container-px">
         <FadeIn className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">

@@ -11,7 +11,10 @@ export const site = {
   tagline:
     "Boxing • Kickboxing • Muay Thai • Brazilian Jiu-Jitsu • Wrestling — all under one roof in Dimapur, Nagaland.",
   logo: "/logo.png", // Transparent cutout logo generated from the client's source image.
-  heroImage: "/images/tca-1.png", // Real gym photo provided by the client.
+  heroVideo: "/videos/hero.mp4", // Looping full-bleed hero background (source: assets/hero.mp4)
+  whyChooseUsVideo: "/videos/why-choose-us.mp4", // Why TCA section (source: assets/why choose us.mp4)
+  // Set to true to show the dual-column video marquee in the hero.
+  showHeroVideoGallery: false,
 
   contact: {
     phoneDisplay: "07005420757",
@@ -29,15 +32,30 @@ export const site = {
     facebook: "https://www.facebook.com/tcanagaland/",
   },
 
-  // Anchor-link navigation used by the header.
+  // Site navigation — use /#section for home anchors, /pricing and /gallery for separate pages.
   nav: [
-    { label: "Home", href: "#home" },
-    { label: "Training", href: "#training" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Schedule", href: "#schedule" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Training", href: "/#training" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Schedule", href: "/#schedule" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Contact", href: "/#contact" },
   ],
 } as const;
+
+/* --------------------------- Bento video gallery --------------------------- */
+// Client training clips from /assets — served from /public/videos.
+export const bentoVideos = [
+  { src: "/videos/tca-01.mp4", label: "Group sparring" },
+  { src: "/videos/tca-02.mp4", label: "Pad work" },
+  { src: "/videos/tca-03.mp4", label: "Technique drills" },
+  { src: "/videos/tca-04.mp4", label: "Grappling session" },
+  { src: "/videos/tca-05.mp4", label: "Striking training" },
+  { src: "/videos/tca-06.mp4", label: "Open mat" },
+  { src: "/videos/tca-07.mp4", label: "Conditioning" },
+  { src: "/videos/tca-08.mp4", label: "Coach corner" },
+  { src: "/videos/tca-09.mp4", label: "Academy floor" },
+] as const;
 
 /* ----------------------------- Disciplines ----------------------------- */
 // Real gym photos supplied by the client.

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { disciplines } from "@/lib/site";
 import FadeIn from "./FadeIn";
-import DisciplineIcon from "./DisciplineIcon";
 
 export default function Disciplines() {
   return (
@@ -18,21 +17,24 @@ export default function Disciplines() {
           </p>
         </FadeIn>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Mobile: 2×2 (+ 5th centered) · Desktop (lg+): 5 in one row */}
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-5">
           {disciplines.map((d, i) => (
             <FadeIn
               as="article"
               key={d.name}
               delay={i * 0.08}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-ink-800"
+              className={`group relative overflow-hidden rounded-xl border border-white/10 bg-ink-800 ${
+                i === 4 ? "col-span-2 mx-auto w-full max-w-sm lg:col-span-1 lg:max-w-none" : ""
+              }`}
             >
               {/* Discipline image — replace with the client's photos later. */}
-              <div className="relative h-56 w-full overflow-hidden">
+              <div className="relative h-44 w-full overflow-hidden sm:h-52 lg:h-48">
                 <Image
                   src={d.image}
                   alt={`${d.name} training at The Combat Academy`}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 1024px) 50vw, 20vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div
@@ -41,12 +43,9 @@ export default function Disciplines() {
                 />
               </div>
 
-              <div className="p-6">
-                <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-md bg-crimson/15 text-crimson">
-                  <DisciplineIcon name={d.icon} className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <h3 className="heading text-2xl text-white">{d.name}</h3>
-                <p className="mt-2 text-sm text-white/65">{d.tagline}</p>
+              <div className="p-4 sm:p-5 lg:p-4">
+                <h3 className="heading text-lg text-white sm:text-xl lg:text-lg">{d.name}</h3>
+                <p className="mt-1.5 text-xs text-white/65 sm:text-sm lg:text-xs">{d.tagline}</p>
               </div>
             </FadeIn>
           ))}

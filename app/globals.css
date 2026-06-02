@@ -57,9 +57,46 @@ body {
   }
 }
 
+/* Hero dual-column video marquee (Ripz interior slider pattern) */
+.video-marquee-card:hover .video-marquee-up,
+.video-marquee-card:hover .video-marquee-down {
+  animation-play-state: paused;
+}
+
+.video-marquee-up {
+  animation: video-marquee-up 28s linear infinite;
+}
+
+.video-marquee-down {
+  animation: video-marquee-down 28s linear infinite;
+}
+
+@keyframes video-marquee-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes video-marquee-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 /* Respect users who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .video-marquee-up,
+  .video-marquee-down {
+    animation: none !important;
   }
 }
